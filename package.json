@@ -1,0 +1,10 @@
+{
+ "name": "glitch-scrape",
+ "description": "Simple module for scrape status.glitch.com",
+ "version": "0.0.1",
+ "scripts": { "test" : "node index.js" },
+ "dependencies": { "node-superfetch": "*" },
+ "engines": { "node": "14.x" },
+ "author": "FlockMe",
+ "license": "MIT"
+}

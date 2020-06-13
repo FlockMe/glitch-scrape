@@ -21,7 +21,7 @@ module.exports = class GlitchScrape {
     return status;
  };
 
- async incidents() {
+ async incident() {
     const { body: incident } = await request.get(genURL('incidents'));
     let incidentStat = incident.pastIncidentDesc;
 

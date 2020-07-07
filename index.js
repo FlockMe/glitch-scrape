@@ -12,7 +12,7 @@ let platform = ['linux', 'windows', 'ubuntu', 'macos', 'debian'];
  - Made with JavaScript
 
  * Change Log
- - Supported Platform added and some fixed bugs here.
+ - Request Client
 
 **/
 
@@ -22,7 +22,7 @@ module.exports = class GlitchScrape {
 
    this.version = version;
    this.author = author;
-   this.changelog = 'Fixed bugs.\nWe find the bug here on incident property of glitch scrape client package.\nNow you can use this!';
+   this.changelog = 'Request Client for Development.';
    this.lang = ['en', 'id'];
  }
 
@@ -47,5 +47,22 @@ module.exports = class GlitchScrape {
       time: incident.pastIncidentsTime[0]
      };
    return shortly;
+ };
+ 
+ async status(type) {
+  let resultOut;
+  let paramQuery = ["incidents", "status"];
+  if (typeof type !== "string") throw Error('Parameter type is empty or the value is not a string!');
+  if (!paramQuery.includes(type.toLowerCase()) throw Error('See the codes available on FlockMe Repo!');
+  try {
+   let data = await request.get(genURL(type));
+   resultOut = `==== RETRIEVED ===\nStatus: ${data.status}\nType Data: ${typeof data.body}`;
+   j
+  } catch (e) {
+     // bypass the log error to client.
+     resultOut = `Sorry:\n${e.message}`;
+   }
+
+  return resultOut;
  };
 };
